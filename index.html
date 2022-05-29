@@ -31,15 +31,93 @@
                         <input type="text" class="form-control border-primary" id="vendorCommentSearch" onkeyup="vendorFilter()" placeholder="Vendor Comments">
                     </div>
 
-                    <ul class="list-group list-group-flush vendor-search-results overflow-auto my-3"
-                        id="searchResultsList" style="height: 260px">
+                    <ul class="list-group list-group-flush vendor-search-results overflow-auto my-3" id="searchResultsList" style="height: 260px">
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Indicate color code in actual text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">--- WAS NOT FIXED ---</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Remove remove [Span] tags.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use commas to add structure to text blocks.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Make each new line a new paragraph tag.</a></li>
+                        <!-- READING ORDER -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix reading order.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Incorrect reading order.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Change to vertical column reading order.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Move note tags directly after the paragraph containing the reference.</a></li>
+                        <!-- AUTOMATED -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fails PAC3 test.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fails CommonLook structural test.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fails CommonLook WCAG 2.1 test.</a></li>
+                        <!-- LINKS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Add http:// to URL.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix invalid link structure.</a></li>
+                        <!-- DOCUMENT -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Document title missing.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Change document title to match h1.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix document language tag in document properties.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Delete empty tags</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Change orientation of page to landscape page is readable.</a></li>
+                        <!-- ARTIFACT -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact dot leaders.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact "..." leader dots.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact heading/footer.</a></li>
+                        <!-- BOOKMARKS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix invalid bookmarks.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Update Bookmarks.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Regenerate bookmarks.</a></li>
+                        <!-- FORMULAS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use [Formula] tag.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">[Formula] uses Actual Text field. Do not use Alternate Text field. Move text to correct field.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix typos and missed elements in Formula actual text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use actual text to denote superscript and subscript elements.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use actual text for math symbols.</a></li>
+                        <!-- HEADINGS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Headings not at correct level.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact redundant headings.</a></li>
+                        <!-- FIGURES -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Make figure.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Tag missing text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix image alt text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Tag each figure separately.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact text in map.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact map legend or scale information.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Artifact images.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Tag missing logos.</a></li>
+                        <!-- STRIKE -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Include strike text and highlight color in actual text field.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Add actual text for strikethrough text.</a></li>
+                        <!-- OCR -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix OCR issues</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use MS Word to check for OCR issues.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Update actual text to include handwritten text not OCR'ed</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Double-check for typos and misspellings.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix instances of space characters missing from between words.</a></li>
+                        <!-- LISTS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Convert to list.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Make nested list.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Add "Bullet" actual text to square list Lbl.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix irregular bullets.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix invalid TOC.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Add colon (:) between term and definition.</a></li>
+                        <!-- TABLES -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Convert to table.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use Caption tag for each table.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Move Caption tag inside table.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">table reported as having invalid structure. Please retag or correct issue.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Unmerge table cells and repeat text in each new cell.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use [Caption] tag.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use [Caption] instead of [P].</a></li>
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Add space to empty table cells.</a></li>
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Split into multiple tables.</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">&lt;Formula&gt; uses Actual Text field. Do not use Alternate Text field. Move text to correct field.</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Include strike text and highlight color in actual text field.</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Unmerge table cells and repeat text in each new cell.</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use &lt;Caption&gt; tag.</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Indicate color code in actual text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use Header ID's for first column cells. </a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use ID and header association.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix table header scopes</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Tag table data.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Don't use row headers for cells in first column because they're not unique.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Table: Don't use row headers for cells in first column.</a></li>
+                        <!-- FORMS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Fix radio button choices</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Tooltip does not match label.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Uncheck "Scroll Long Text".</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use date format.</a></li>
                     </ul>
                 </div>
 
