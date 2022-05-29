@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A utility for logging remediation defects with a consistent language.">
+    <meta name="author" content="Mark Aplet">
+    <title>DefectBot</title>
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
+    <!-- Local copy used only for development only. Needed for code completion -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <style>
+    </style>
+</head>
+    <body class="bg-light">
+
+    <div class="container-fluid">
+        <div class="row my-4">
+            <div class="col">
+                <h1 class="h4">Defect<strong>Bot</strong></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="bg-white shadow rounded-4 p-4">
+                    <div class="mb-3">
+                        <label for="vendorCommentSearch" class="form-label visually-hidden">Vendor Comments</label>
+                        <input type="text" class="form-control border-primary" id="vendorCommentSearch" onkeyup="vendorFilter()" placeholder="Vendor Comments">
+                    </div>
+
+                    <ul class="list-group list-group-flush vendor-search-results overflow-auto my-3"
+                        id="searchResultsList" style="height: 260px">
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Add space to empty table cells.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Split into multiple tables.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">&lt;Formula&gt; uses Actual Text field. Do not use Alternate Text field. Move text to correct field.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Include strike text and highlight color in actual text field.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Unmerge table cells and repeat text in each new cell.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Use &lt;Caption&gt; tag.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Indicate color code in actual text.</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="bg-white shadow rounded-4 p-4" style="height: 100%">
+                    <div class="position-relative">
+                        <form id="vendorForm">
+                            <label for="vendorCommentResults" class="form-label visually-hidden">Vendor Comments Copy</label>
+                            <textarea name="vendorCommentResults" id="vendorCommentResults" cols="30" rows="10" class="form-control border-primary"></textarea>
+                        </form>
+
+                        <!-- Toast -->
+                        <div class="position-absolute bottom-0 end-0">
+                            <div class="toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        Text Coppied
+                                    </div>
+                                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-bottom border-primary pb-1">
+                        <div class="d-flex justify-content-between mt-1">
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="listformatstyle" id="listFormatStar" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="listFormatStar"><i class="bi bi-asterisk"></i></label>
+
+                                <input type="radio" class="btn-check" name="listformatstyle" id="listFormatDash" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="listFormatDash"><i class="bi bi-dash"></i></label>
+
+                                <input type="radio" class="btn-check" name="listformatstyle" id="listFormatNumber" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="listFormatNumber"><i class="bi bi-hash"></i></label>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary" onclick="vendorClear()"><i class="bi bi-trash"></i> Clear</button>
+                            <button type="button" class="btn btn-outline-primary copy-popover" onclick="vendorCopy()" id="liveToastBtn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Filter vendor list when searched
+        function vendorFilter() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("vendorCommentSearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("searchResultsList");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        function duplicateFunc() {
+            var vendorCommentResults = document.getElementById('vendorCommentResults');
+            var listAction = document.getElementsByClassName('list-action');
+
+            const test = listAction=event.target.innerHTML
+            let str = '*';
+                str += ' ';
+                str += test;
+                str += '\n';
+
+            vendorCommentResults.append(str);
+
+            //vendorCommentResults.append(listAction=event.target.innerHTML + '\n');
+            //vendorCommentResults.append(listAction=event.target.innerHTML);
+            //console.log(event.target.innerHTML);
+            //console.log(listAction);
+        }
+
+        // Clear saved vendor comments from list
+        function vendorClear() {
+            document.getElementById("vendorForm").reset();
+        }
+
+        // Copy saved vendor comments to the clipboard.
+        function vendorCopy() {
+            // Get the text field
+            var copyText = document.getElementById("vendorCommentResults");
+
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+
+            // Show toast
+            ShowToast();
+
+            function ShowToast(){
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastList = toastElList.map(function(toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                })
+                toastList.forEach(toast => toast.show())
+            }
+        }
+    </script>
+    </body>
+</html>
