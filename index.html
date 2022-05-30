@@ -17,6 +17,7 @@
 </head>
     <body class="bg-light">
 
+    <!-- Vendor List -->
     <div class="container-fluid">
         <div class="row my-4">
             <div class="col">
@@ -190,7 +191,7 @@
 
                         <!-- Toast -->
                         <div class="position-absolute bottom-0 end-0">
-                            <div class="toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast vendor-toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true">
                                 <div class="d-flex">
                                     <div class="toast-body">
                                         Text Coppied
@@ -222,8 +223,106 @@
             </div>
         </div>
     </div>
+    <!-- End Vendor list -->
 
+    <div class="container-fluid">
+        <div class="row my-4">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="bg-white shadow rounded-4 p-4">
+                    <div class="mb-3">
+                        <label for="customerCommentSearch" class="form-label visually-hidden">Customer Comments</label>
+                        <input type="text" class="form-control border-primary" id="customerCommentSearch" onkeyup="customerFilter()" placeholder="Customer Comments">
+                    </div>
 
+                    <ul class="list-group list-group-flush customer-search-results overflow-auto my-3" id="customerSearchResultsList" style="height: 260px">
+                        <!-- COLOR -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains text that does not meet minimum color contrast ratio.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Color alone cannot be used as a means of communicating content.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Unclear if shaded boxes in tables indicate redacted content. SME should review.</a></li>
+                        <!-- TABLES -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains complex tables that must be simplified to be accessible.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains complex tables that should be simplified.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains tables used for layout.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Table headers should repeat across pages.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Avoid complex tables.</a></li>
+                        <!-- FIGURES -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains poor quality scans that contains text that is difficult to read.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">SME should validate accuracy of formula actual text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">SME should validate accuracy of figure alt text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Figures may require SME to add/improve alt text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains complex flow diagrams.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">SME should review alt text to charts and figures to make sure they're sufficient (include relevant information contained within them that's not already described by surrounding text).</a></li>
+                        <!-- FORMULA -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">SME should validate accuracy of formula actual text.</a></li>
+                        <!-- HEADINGS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Document lacks proper heading level 1.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Document exceeds the maximum of 6 heading levels. Headings intended to be higher than 6 will use H6.</a></li>
+                        <!-- LINKS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains broken links.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Recommend that links are blue and underlined.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains links to files on local system such as C:\\ drive.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains links to non web accessible locations such as FTP or sharepoint.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains ambiguous links. E.g. Click here.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Avoid using blue underline text for non-link text.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains links that are not visually indicated.</a></li>
+                        <!-- DOCUMENT -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Sidebar content can break reading continuity.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains change in page orientation.</a></li>
+                        <!-- AUTOMATED -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Embeded font warning.</a></li>
+                        <!-- FORMS -->
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFuncCust()">Contains forms that are not designed for digital input.</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="bg-white shadow rounded-4 p-4" style="height: 100%">
+                    <div class="position-relative">
+                        <form id="customerForm">
+                            <label for="customerCommentResults" class="form-label visually-hidden">Customer Comments</label>
+                            <textarea name="customerCommentResults" id="customerCommentResults" cols="30" rows="10" class="form-control border-primary"></textarea>
+                        </form>
+
+                        <!-- Toast -->
+                        <div class="position-absolute bottom-0 end-0">
+                            <div class="toast customer-toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body">
+                                        Text Coppied
+                                    </div>
+                                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-bottom border-primary pb-1">
+                        <div class="d-flex justify-content-between mt-1">
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="listformatstyle" id="listFormatStar" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="listFormatStar"><i class="bi bi-asterisk"></i></label>
+
+                                <input type="radio" class="btn-check" name="listformatstyle" id="listFormatDash" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="listFormatDash"><i class="bi bi-dash"></i></label>
+
+                                <input type="radio" class="btn-check" name="listformatstyle" id="listFormatNumber" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="listFormatNumber"><i class="bi bi-hash"></i></label>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary" onclick="customerClear()"><i class="bi bi-trash"></i> Clear</button>
+                            <button type="button" class="btn btn-outline-primary copy-popover" onclick="customerCopy()" id="customerliveToastBtn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <script>
         // Filter vendor list when searched
         function vendorFilter() {
@@ -231,6 +330,24 @@
             input = document.getElementById("vendorCommentSearch");
             filter = input.value.toUpperCase();
             ul = document.getElementById("searchResultsList");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Filter Customer list when searched
+        function customerFilter() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("customerCommentSearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("customerSearchResultsList");
             li = ul.getElementsByTagName("li");
             for (i = 0; i < li.length; i++) {
                 a = li[i].getElementsByTagName("a")[0];
@@ -261,9 +378,27 @@
             //console.log(listAction);
         }
 
+        function duplicateFuncCust() {
+            var customerCommentResults = document.getElementById('customerCommentResults');
+            var listAction = document.getElementsByClassName('list-action');
+
+            const test = listAction=event.target.innerHTML
+            let str = '*';
+            str += ' ';
+            str += test;
+            str += '\n';
+
+            customerCommentResults.append(str);
+        }
+
         // Clear saved vendor comments from list
         function vendorClear() {
             document.getElementById("vendorForm").reset();
+        }
+
+        // Clear saved customer comments from list
+        function customerClear() {
+            document.getElementById("customerForm").reset();
         }
 
         // Copy saved vendor comments to the clipboard.
@@ -282,7 +417,31 @@
             ShowToast();
 
             function ShowToast(){
-                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastElList = [].slice.call(document.querySelectorAll('.vendor-toast'))
+                var toastList = toastElList.map(function(toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                })
+                toastList.forEach(toast => toast.show())
+            }
+        }
+
+        // Copy saved vendor comments to the clipboard.
+        function customerCopy() {
+            // Get the text field
+            var copyText = document.getElementById("customerCommentResults");
+
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+
+            // Show toast
+            ShowToast();
+
+            function ShowToast(){
+                var toastElList = [].slice.call(document.querySelectorAll('.customer-toast'))
                 var toastList = toastElList.map(function(toastEl) {
                     return new bootstrap.Toast(toastEl)
                 })
