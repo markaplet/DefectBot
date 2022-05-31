@@ -3,6 +3,7 @@ A personal utility application for logging PDF remediation defects with a consis
 
 ## Implemented Features
 * Searchable list of vendor defects.
+* Searchable list of customer defects.
 * Defect insertion into textarea.
 * Copy defect list into clipboard.
 * Clear defect list.
@@ -10,6 +11,5 @@ A personal utility application for logging PDF remediation defects with a consis
 ## Todo
 * Support bullet type switching.
 * Support the use of greater than and less than symbols in vendor list.
-* Add customer lists.
 * Find better solution for managing defect lists. Maybe load via js?
 * Refactor nasty js.
