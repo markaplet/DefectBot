@@ -39,10 +39,28 @@
       <workItem from="1653842615420" duration="3618000" />
       <workItem from="1653861263745" duration="3894000" />
       <workItem from="1653881217718" duration="2280000" />
+      <workItem from="1654014842098" duration="406000" />
+      <workItem from="1654017279410" duration="2734000" />
+      <workItem from="1654100005555" duration="2235000" />
+      <workItem from="1654191268511" duration="691000" />
+      <workItem from="1654208614552" duration="866000" />
+      <workItem from="1654878924550" duration="3460000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
