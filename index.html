@@ -21,13 +21,14 @@
     <div class="container-fluid">
         <div class="row my-4">
             <div class="col">
-                <h1 class="h4">Defect<strong>Bot</strong></h1>
+                <h1 class="h4">QC<strong>Bot</strong></h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="bg-white shadow rounded-4 p-4">
-                    <div class="mb-3">
+                <div class="bg-white shadow rounded-4 pt-4 px-4 pb-2">
+                    <h2 class="h6 fw-bold mb-4">Vendor Comment</h2>
+                    <div class="">
                         <label for="vendorCommentSearch" class="form-label visually-hidden">Vendor Comments</label>
                         <input type="text" class="form-control border-primary" id="vendorCommentSearch" onkeyup="vendorFilter()" placeholder="Vendor Comments">
                     </div>
@@ -56,6 +57,7 @@
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Missing Lbl tag.</a></li>
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Link missing for end note.</a></li>
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Reference missing or incorrectly defined.</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Each Use separate Note tags. Do not combine.</a></li>
                         <!-- DOCUMENT -->
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Document title missing.</a></li>
                         <li class="list-group-item list-group-item-action"><a href="#" class="list-action" onclick="duplicateFunc()">Change document title to match H1.</a></li>
@@ -187,11 +189,11 @@
 
             </div>
             <div class="col-md-6">
-                <div class="bg-white shadow rounded-4 p-4" style="height: 100%">
+                <div class="bg-white shadow rounded-4 pt-4 px-4" style="height: 100%">
                     <div class="position-relative">
                         <form id="vendorForm">
                             <label for="vendorCommentResults" class="form-label visually-hidden">Vendor Comments Copy</label>
-                            <textarea name="vendorCommentResults" id="vendorCommentResults" cols="30" rows="10" class="form-control border-primary"></textarea>
+                            <textarea name="vendorCommentResults" id="vendorCommentResults" cols="30" rows="11" class="form-control border-primary"></textarea>
                         </form>
 
                         <!-- Toast -->
@@ -236,9 +238,10 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-md-6">
-                <div class="bg-white shadow rounded-4 p-4">
+                <div class="bg-white shadow rounded-4 pt-4 px-4 pb-2">
+                    <h2 class="h6 fw-bold mb-4">Customer Comments</h2>
                     <div class="mb-3">
                         <label for="customerCommentSearch" class="form-label visually-hidden">Customer Comments</label>
                         <input type="text" class="form-control border-primary" id="customerCommentSearch" onkeyup="customerFilter()" placeholder="Customer Comments">
@@ -304,11 +307,11 @@
 
             </div>
             <div class="col-md-6">
-                <div class="bg-white shadow rounded-4 p-4" style="height: 100%">
+                <div class="bg-white shadow rounded-4 pt-4 px-4 pb-2" style="height: 100%">
                     <div class="position-relative">
                         <form id="customerForm">
                             <label for="customerCommentResults" class="form-label visually-hidden">Customer Comments</label>
-                            <textarea name="customerCommentResults" id="customerCommentResults" cols="30" rows="10" class="form-control border-primary"></textarea>
+                            <textarea name="customerCommentResults" id="customerCommentResults" cols="30" rows="11" class="form-control border-primary"></textarea>
                         </form>
 
                         <!-- Toast -->
